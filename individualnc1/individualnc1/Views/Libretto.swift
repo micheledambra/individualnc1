@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Libretto: View {
     
-    @State private var showGreeting = true
+   
     var body: some View {
-        Toggle("testo prova", isOn: $showGreeting)
+       Text("testo")
     }
 }
 
