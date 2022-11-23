@@ -8,67 +8,69 @@
 import SwiftUI
 
 struct ProfView: View {
-   
+    
     @State private var searchText = ""
-
+    
     var body: some View {
         
-        let cardWidth: CGFloat = 365
-        let cardHeight: CGFloat = 110
-        let Radius: CGFloat = 10
+        // let cardWidth: CGFloat = 365
+        // let cardHeight: CGFloat = 110
+        //   let Radius: CGFloat = 10
         
         
-        NavigationStack{
+        ZStack(alignment: .top){
+            LinearGradient(colors: [Color("BlueUni"), Color("BlueUni2")],
+                           startPoint: .top,
+                           endPoint: .center)
+            .ignoresSafeArea()
             
-            ScrollView{
-                
-                Spacer()
-                    .frame(width:20)
-                
-                ZStack{
-                    VStack{
+            VStack{
+                ZStack(alignment: .topLeading) {
+                    RoundedRectangle(cornerRadius: 40, style: .continuous)
+                        .foregroundColor(Color.white)
+                        .frame(width: .infinity, height: 125)
+                        .opacity(0.8)
+                        .shadow(color: .black, radius: 6, x:6, y:6)
+                        .ignoresSafeArea()
+                    
+                    VStack {
+                        Spacer()
+                            .frame(height: 50)
                         
-                        
-                        ZStack(alignment: .leading){
+                        HStack {
+                            Spacer()
+                                .frame(width:100)
+                            Image("GraduationHat")
+                                .resizable()
+                                .frame(width: 50, height:50)
                             
-                            RoundedRectangle(cornerRadius: Radius)
-                                .foregroundColor(Color.gray)
-                                .frame(width: cardWidth, height: cardHeight)
-                            //.shadow(color: .gray, radius: 5, x:8, y:8)
+                            Spacer()
+                                .frame(width:5)
                             
-                            HStack{
-                                Spacer()
-                                    .frame(width:15)
-                                
-                                Image("laccetti")
+                            Text("MyUNI")
+                                .fontWeight(.bold)
+                                .font(.system(size: 40))
+                                .foregroundColor(Color.black)
+                            
+                            Spacer()
+                                .frame(width:45)
+                            
+                            Button(action: { }, label: {
+                                Image(systemName: "person.circle.fill")
                                     .resizable()
-                                    .frame(width: 80, height:100)
-                                    .mask(Circle())
-                                    .shadow(color: .gray, radius: 5)
-                                
-                                Spacer()
-                                    .frame(width:15)
-                                
-                                Text("Nome Cognome")
-                                
-                            }
+                                    .frame(width: 35, height: 35)
+                                    .foregroundColor(Color.black)
+                            })
+                            
+                            
                         }
-                        
-                    }//Vstack
-                }//zstack
-            }//scroll
-            
-            .navigationTitle("Docenti")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}){
-                        Label("Profile", systemImage: "person.circle")
                     }
+                    .ignoresSafeArea()
                 }
+                
             }
-            .searchable(text: $searchText)
-        }//Nstack
+            
+        }
     }
 }
 
