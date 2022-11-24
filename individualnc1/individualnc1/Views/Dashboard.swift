@@ -13,6 +13,7 @@ struct Dashboard: View {
     var topcardh: CGFloat = 135
     var topcardw: CGFloat = 165
     var prof: Bool = false
+    let progress: Double = 0.55
     var body: some View {
         
         NavigationStack {
@@ -85,7 +86,7 @@ struct Dashboard: View {
                                     VStack{
                                         Image("TeacherPic")
                                             .resizable()
-                                            .frame(width: 50, height:50)
+                                            .frame(width: 70, height:70)
                                         Text("Professors")
                                             .fontWeight(.semibold)
                                             .font(.system(size: 20))
@@ -108,7 +109,7 @@ struct Dashboard: View {
                                 VStack{
                                     Image("CoursesPic")
                                         .resizable()
-                                        .frame(width: 50, height: 50)
+                                        .frame(width: 70, height: 70)
                                     Text("Lessons")
                                         .fontWeight(.semibold)
                                         .font(.system(size: 20))
@@ -123,24 +124,94 @@ struct Dashboard: View {
                     Spacer()
                         .frame(height: 15)
                     
-                    ZStack {
+                    ZStack(alignment: .leading) {
                         
                         RoundedRectangle(cornerRadius: corner)
                             .foregroundColor(Color.white)
-                            .frame(width: 346, height: 230)
+                            .frame(width: 346, height: 240)
                             .opacity(0.8)
                             .shadow(color: .black, radius: 6, x:6, y:6)
                             
                         
-                        VStack{
-                            //
+                        VStack(alignment: .leading){
+                            HStack {
+                                Spacer()
+                                .frame(width: 20)
+                                Text("Grades")
+                                    .fontWeight(.semibold)
+                                    .font(.system(size: 20))
+                                .foregroundColor(Color.black)
+                                
+                            }
+                            
+                            Spacer()
+                                .frame(height: 20)
+                            
+                            HStack {
+                                Spacer()
+                                    .frame(width: 45)
+                                ZStack {
+                                            Circle()
+                                                .stroke(
+                                                    Color.blue.opacity(0.5),
+                                                    lineWidth: 30
+                                                )
+                                            Circle()
+                                                // 2
+                                                .trim(from: 0, to: progress)
+                                                .stroke(
+                                                    Color.blue,
+                                                    style: StrokeStyle(
+                                                        lineWidth: 30,
+                                                        lineCap: .round
+                                                    )
+                                                )
+                                                .rotationEffect(.degrees(-90))
+                                    VStack {
+                                        Text("Exams done")
+                                            .fontWeight(.semibold)
+                                        .font(.system(size: 14))
+                                    .foregroundColor(Color.black)
+                                        Text("55%")
+                                            .fontWeight(.bold)
+                                            .font(.system(size: 30))
+                                        .foregroundColor(Color.black)
+                                    }
+                                    
+                                }.frame(width: 145)
+                                
+                                Spacer()
+                                    .frame(width: 40)
+                                VStack(alignment: .leading){
+                                    Text("Average")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 15))
+                                        .foregroundColor(Color.black)
+                                    
+                                    Text("A: 28.7/30 ")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 15))
+                                        .foregroundColor(Color.black)
+                                        .opacity(0.7)
+                                    
+                                    Text("P: 105.9/110 ")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 15))
+                                        .foregroundColor(Color.black)
+                                        .opacity(0.7)
+                                    
+                                    
+                                }
+                                
+                            }
                         }
+                        
                     }
                     
                     Spacer()
                         .frame(height: 15)
                     
-                    ZStack {
+                    ZStack {//NEWS
                         
                         RoundedRectangle(cornerRadius: corner)
                             .foregroundColor(Color.white)
@@ -161,7 +232,7 @@ struct Dashboard: View {
                                 }
                            
                             Spacer()
-                                .frame(height:10)
+                                .frame(height:16)
                             
                             HStack{
                                 Circle()
@@ -173,11 +244,14 @@ struct Dashboard: View {
                                     .font(.system(size: 18))
                                     .foregroundColor(Color.black)
                                 
-                                Text("2hhh")
+                                Text("25/11: La lezione di oggi..")
                                     .fontWeight(.bold)
                                     .font(.system(size: 15))
                                     .foregroundColor(Color.black)
                                     .opacity(0.7)
+                                
+                                Spacer()
+                                    .frame(width:25)
                             }
                             
                             HStack{
@@ -190,11 +264,14 @@ struct Dashboard: View {
                                     .font(.system(size: 18))
                                     .foregroundColor(Color.black)
                                 
-                                Text("Testo avviso")
+                                Text("25/11: Risultati esame del ..")
                                     .fontWeight(.bold)
                                     .font(.system(size: 15))
                                     .foregroundColor(Color.black)
                                     .opacity(0.7)
+                                
+                                Spacer()
+                                    .frame(width:15)
                             }
                             
                             HStack{
@@ -207,11 +284,14 @@ struct Dashboard: View {
                                     .font(.system(size: 18))
                                     .foregroundColor(Color.black)
                                 
-                                Text("Testo avviso")
+                                Text("24/11: Posticipo test di autov..")
                                     .fontWeight(.bold)
                                     .font(.system(size: 15))
                                     .foregroundColor(Color.black)
                                     .opacity(0.7)
+                                
+                                Spacer()
+                                    .frame(width:15)
                             }
                             HStack{
                                 Circle()
@@ -223,11 +303,14 @@ struct Dashboard: View {
                                     .font(.system(size: 18))
                                     .foregroundColor(Color.black)
                                 
-                                Text("Testo avviso")
+                                Text("23/11: Risultati esame del gi..")
                                     .fontWeight(.bold)
                                     .font(.system(size: 15))
                                     .foregroundColor(Color.black)
                                     .opacity(0.7)
+                                
+                                Spacer()
+                                    .frame(width:8)
                             }
                         }
                     }
