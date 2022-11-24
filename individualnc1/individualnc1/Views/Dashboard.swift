@@ -10,7 +10,7 @@ import SwiftUI
 struct Dashboard: View {
     
     var corner: CGFloat = 10
-    var topcardh: CGFloat = 165
+    var topcardh: CGFloat = 135
     var topcardw: CGFloat = 165
     var prof: Bool = false
     var body: some View {
@@ -121,19 +121,114 @@ struct Dashboard: View {
                     }//hstack
                     
                     Spacer()
-                        .frame(height: 16)
+                        .frame(height: 15)
                     
                     ZStack {
                         
                         RoundedRectangle(cornerRadius: corner)
                             .foregroundColor(Color.white)
-                            .frame(width: 346, height: 300)
+                            .frame(width: 346, height: 230)
                             .opacity(0.8)
                             .shadow(color: .black, radius: 6, x:6, y:6)
                             
                         
                         VStack{
                             //
+                        }
+                    }
+                    
+                    Spacer()
+                        .frame(height: 15)
+                    
+                    ZStack {
+                        
+                        RoundedRectangle(cornerRadius: corner)
+                            .foregroundColor(Color.white)
+                            .frame(width: 346, height: 200)
+                            .opacity(0.8)
+                            .shadow(color: .black, radius: 6, x:6, y:6)
+                            
+                        
+                        VStack(alignment: .trailing){
+                            
+                            HStack {
+                                Text("News")
+                                    .fontWeight(.semibold)
+                                    .font(.system(size: 20))
+                                    .foregroundColor(Color.black)
+                                Spacer()
+                                    .frame(width: 250)
+                                }
+                           
+                            Spacer()
+                                .frame(height:10)
+                            
+                            HStack{
+                                Circle()
+                                    .frame(height: 10)
+                                    .foregroundColor(Color.red)
+                                    .opacity(0.7)
+                                Text("[Prog I]")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color.black)
+                                
+                                Text("2hhh")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.black)
+                                    .opacity(0.7)
+                            }
+                            
+                            HStack{
+                                Circle()
+                                    .frame(height: 10)
+                                    .foregroundColor(Color.teal)
+                                    .opacity(0.7)
+                                Text("[Reti I]")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color.black)
+                                
+                                Text("Testo avviso")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.black)
+                                    .opacity(0.7)
+                            }
+                            
+                            HStack{
+                                Circle()
+                                    .frame(height: 10)
+                                    .foregroundColor(Color.teal)
+                                    .opacity(0.7)
+                                Text("[CF]")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color.black)
+                                
+                                Text("Testo avviso")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.black)
+                                    .opacity(0.7)
+                            }
+                            HStack{
+                                Circle()
+                                    .frame(height: 10)
+                                    .foregroundColor(Color.teal)
+                                    .opacity(0.7)
+                                Text("[LSO]")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color.black)
+                                
+                                Text("Testo avviso")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.black)
+                                    .opacity(0.7)
+                            }
                         }
                     }
                     
